@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONOS | Alta Horlogerie & Salón Privado</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            950: '#060709',
+                            900: '#0B0D12',
+                            800: '#131722',
+                            700: '#1F2636'
+                        },
+                        champagne: {
+                            100: '#FFF8E7',
+                            200: '#FDF0CD',
+                            300: '#FBE4A1',
+                            400: '#F9D470',
+                            500: '#E5B842',
+                            600: '#C79A2B',
+                            700: '#9E771D'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060709;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(11, 13, 18, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 184, 66, 0.15);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(229, 184, 66, 0.15);
+        }
+
+        .gold-border-glow:hover {
+            box-shadow: 0 0 35px 0px rgba(229, 184, 66, 0.3);
+        }
+
+        .gold-gradient-text {
+            background: linear-[#E5B842], #FDF0CD, #C79A2B);
+            background: linear-gradient(135deg, #FDF0CD 0%, #E5B842 50%, #9E771D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332B15;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E5B842;
+        }
+
+        .card-3d-wrap {
+            perspective: 1000px;
+        }
+        .card-3d {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+        .card-3d-wrap:hover .card-3d {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-champagne-500 selection:text-obsidian-950">
+
+    <!-- TOP ANNOUNCEMENT BAR (URGENCY & VIP Concierge) -->
+    <div class="bg-gradient-to-r from-obsidian-950 via-champagne-900/30 to-obsidian-950 text-champagne-300 border-b border-champagne-500/20 py-2 px-4 text-xs">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="tracking-widest uppercase font-semibold text-[10px] md:text-xs">Atención Concierge 24/7 En Vivo</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-[11px]">
+                <span><i class="fas fa-shield-alt text-champagne-400 mr-1"></i> Envío Blindado Asegurado Gratis</span>
+                <span><i class="fas fa-certificate text-champagne-400 mr-1"></i> Garantía Internacional de 5 Años</span>
+            </div>
+            <div>
+                <button onclick="toggleCurrency()" id="currencyBtn" class="bg-obsidian-900 border border-champagne-500/30 hover:border-champagne-400 px-3 py-1 rounded text-[10px] font-mono tracking-wider transition">
+                    USD ($)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="sticky top-0 z-40 bg-obsidian-950/90 backdrop-blur-md border-b border-champagne-500/10 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full border border-champagne-500/40 flex items-center justify-center bg-obsidian-900 group-hover:border-champagne-400 transition">
+                    <i class="fas fa-crown text-champagne-400 text-lg group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div>
+                    <span class="font-cinzel text-xl md:text-2xl font-bold tracking-widest text-white block leading-none">CHRONOS</span>
+                    <span class="text-[9px] uppercase tracking-[0.3em] text-champagne-400 block mt-1 font-sans">Haute Horlogerie</span>
+                </div>
+            </a>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="hidden md:flex flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <input type="text" id="searchInput" onkeyup="handleSearch()" placeholder="Buscar por modelo, complicación o marca..." class="w-full bg-obsidian-900/80 border border-champagne-500/20 text-xs rounded-full py-2.5 pl-10 pr-4 text-gray-200 focus:outline-none focus:border-champagne-400 transition">
+                    <i class="fas fa-search absolute left-3.5 top-3 text-champagne-500/60 text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openAppointmentModal()" class="hidden lg:flex items-center space-x-2 text-xs border border-champagne-500/40 text-champagne-300 hover:bg-champagne-500/10 px-4 py-2.5 rounded-full transition font-serif tracking-wider">
+                    <i class="far fa-calendar-alt text-champagne-400"></i>
+                    <span>Cita en Salón</span>
+                </button>
+
+                <button onclick="openCart()" class="relative p-2.5 text-gray-300 hover:text-champagne-400 transition">
+                    <i class="fas fa-shopping-bag text-lg"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-champagne-500 text-obsidian-950 font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center transform scale-0 transition-transform duration-300">0</span>
+                </button>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-300 hover:text-champagne-400 text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar (Mobile) -->
+        <div class="md:hidden px-4 pb-3">
+            <div class="relative w-full">
+                <input type="text" id="searchInputMobile" onkeyup="handleSearchMobile()" placeholder="Buscar reloj de lujo..." class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-full py-2 pl-9 pr-4 text-gray-200">
+                <i class="fas fa-search absolute left-3 top-2.5 text-champagne-500/60 text-xs"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU MODAL -->
+    <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-obsidian-950/95 backdrop-blur-xl p-6 flex flex-col justify-between">
+        <div class="flex justify-between items-center border-b border-champagne-500/20 pb-4">
+            <span class="font-cinzel text-lg text-champagne-300">MENÚ VIP</span>
+            <button onclick="toggleMobileMenu()" class="text-gray-400 text-xl"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="space-y-6 text-center font-serif text-lg">
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne-400">Colección Destacada</a>
+            <a href="#private-salon" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne-400">Salón Privado</a>
+            <a href="#trade-in" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne-400">Programa Trade-In</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-gray-200 hover:text-champagne-400">Herencia & Certificación</a>
+        </div>
+        <button onclick="openAppointmentModal(); toggleMobileMenu();" class="w-full py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-bold font-serif text-sm rounded-xl">
+            AGENDAR CITA EN SALÓN
+        </button>
+    </div>
+
+    <!-- HERO SECTION (High-Net-Worth Neuromarketing) -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden border-b border-champagne-500/10 py-12">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-champagne-900/20 via-obsidian-950 to-obsidian-950 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Copy -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-champagne-500/10 border border-champagne-500/30 px-3 py-1 rounded-full text-champagne-300 text-xs">
+                    <i class="fas fa-gem text-xs"></i>
+                    <span class="uppercase tracking-widest font-semibold text-[10px]">Lanzamiento Exclusivo 2026</span>
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                    El Arte de la <br>
+                    <span class="gold-gradient-text font-cinzel">Perfección Horológica</span>
+                </h1>
+
+                <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Acceda a la reserva privada de piezas con complicaciones históricas, certificaciones COSC y ensamblaje manual limitado a 50 unidades globales.
+                </p>
+
+                <!-- Timer Scarcity Box -->
+                <div class="glass-panel p-4 rounded-2xl max-w-md mx-auto lg:mx-0 flex items-center justify-between border-champagne-500/20">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-semibold">Subasta de Pieza Única Cierra En:</span>
+                        <span class="text-xs text-champagne-300 font-serif">Patek Philippe Grand Complications</span>
+                    </div>
+                    <div class="flex space-x-2 text-center font-mono">
+                        <div class="bg-obsidian-900 border border-champagne-500/20 px-2 py-1 rounded">
+                            <span id="timerHours" class="text-sm font-bold text-champagne-400">08</span>
+                            <span class="text-[8px] text-gray-500 block">HRS</span>
+                        </div>
+                        <div class="bg-obsidian-900 border border-champagne-500/20 px-2 py-1 rounded">
+                            <span id="timerMins" class="text-sm font-bold text-champagne-400">42</span>
+                            <span class="text-[8px] text-gray-500 block">MIN</span>
+                        </div>
+                        <div class="bg-obsidian-900 border border-champagne-500/20 px-2 py-1 rounded">
+                            <span id="timerSecs" class="text-sm font-bold text-champagne-400">19</span>
+                            <span class="text-[8px] text-gray-500 block">SEG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#catalog" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-obsidian-950 font-bold font-serif text-xs rounded-xl shadow-xl shadow-champagne-500/10 transition tracking-widest text-center">
+                        EXPLORAR CATÁLOGO VIP
+                    </a>
+                    <button onclick="openAppointmentModal()" class="w-full sm:w-auto px-8 py-4 border border-champagne-500/30 hover:border-champagne-400 text-champagne-300 text-xs rounded-xl transition font-serif tracking-widest">
+                        SOLICITAR CITA EN SALÓN
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Watch Showcase 3D -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="card-3d-wrap w-full max-w-sm">
+                    <div class="card-3d glass-panel p-6 rounded-3xl gold-border-glow relative">
+                        <div class="absolute -top-3 -right-3 bg-champagne-500 text-obsidian-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">
+                            Pieza de Colección
+                        </div>
+                        
+                        <div class="h-72 flex items-center justify-center relative">
+                            <svg class="w-full h-full text-champagne-400 drop-shadow-[0_20px_20px_rgba(0,0,0,0.9)]" viewBox="0 0 200 200" fill="none">
+                                <circle cx="100" cy="100" r="75" stroke="currentColor" stroke-width="4" />
+                                <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+                                <circle cx="100" cy="100" r="8" fill="currentColor" />
+                                <line x1="100" y1="100" x2="100" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                                <line x1="100" y1="100" x2="135" y2="100" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <circle cx="100" cy="140" r="18" stroke="currentColor" stroke-width="1" />
+                                <path d="M 95 140 L 100 132 L 105 140 Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+
+                        <div class="space-y-2 text-center pt-2 border-t border-champagne-500/20">
+                            <span class="text-[10px] uppercase tracking-widest text-champagne-400 font-bold">Patek Philippe</span>
+                            <h3 class="font-serif text-lg font-bold text-white">Grand Complications 5320G</h3>
+                            <p id="heroPrice" class="font-mono text-champagne-300 font-bold text-sm">$98,500 USD</p>
+                            <button onclick="addToCart(1)" class="w-full mt-3 py-2.5 bg-obsidian-900 border border-champagne-500/40 text-champagne-300 hover:bg-champagne-500 hover:text-obsidian-950 font-serif text-xs rounded-xl transition">
+                                ADQUIRIR ESTA PIEZA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CATALOG & FILTERING SECTION -->
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-400 font-semibold block">Catálogo de Alta Horlogerie</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Piezas Disponibles para Entrega Inmediata</h2>
+            <div class="w-16 h-0.5 bg-champagne-500/40 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Filters Sidebar -->
+            <aside class="space-y-6">
+                <div class="glass-panel p-5 rounded-2xl space-y-6 border-champagne-500/20">
+                    <div class="flex items-center justify-between border-b border-champagne-500/15 pb-3">
+                        <h3 class="font-serif text-sm font-bold text-champagne-300 tracking-wider uppercase">Filtros de Búsqueda</h3>
+                        <button onclick="resetFilters()" class="text-[10px] text-gray-400 hover:text-champagne-400 underline">Limpiar</button>
+                    </div>
+
+                    <!-- Metal / Precious Material Filter -->
+                    <div class="space-y-3">
+                        <label class="text-xs uppercase tracking-widest font-semibold text-gray-300 block">Material de Caja</label>
+                        <select id="metalFilter" onchange="applyFilters()" class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-lg p-2.5 text-gray-200 focus:border-champagne-400 focus:outline-none">
+                            <option value="all">Todos los Metales Nobles</option>
+                            <option value="Oro Rosa 18K">Oro Rosa 18K</option>
+                            <option value="Platino 950">Platino 950</option>
+                            <option value="Titanio Grado 5">Titanio Grado 5</option>
+                            <option value="Acero Inoxidable 316L">Acero Inoxidable 316L</option>
+                        </select>
+                    </div>
+
+                    <!-- Category / Complication Filter -->
+                    <div class="space-y-3">
+                        <label class="text-xs uppercase tracking-widest font-semibold text-gray-300 block">Complicación Horológica</label>
+                        <div class="space-y-2 text-xs">
+                            <label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+                                <input type="checkbox" value="Automatic" onchange="applyFilters()" class="filter-category rounded accent-champagne-500">
+                                <span>Gran Complicación / Automático</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+                                <input type="checkbox" value="Chronograph" onchange="applyFilters()" class="filter-category rounded accent-champagne-500">
+                                <span>Cronógrafo de Alta Precisión</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+                                <input type="checkbox" value="Dress" onchange="applyFilters()" class="filter-category rounded accent-champagne-500">
+                                <span>Reloj de Vestir Extraplano</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+                                <input type="checkbox" value="Sport" onchange="applyFilters()" class="filter-category rounded accent-champagne-500">
+                                <span>Deportivo Professional</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Strap Filter -->
+                    <div class="space-y-3">
+                        <label class="text-xs uppercase tracking-widest font-semibold text-gray-300 block">Brazalete / Pulso</label>
+                        <select id="strapFilter" onchange="applyFilters()" class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-lg p-2.5 text-gray-200 focus:border-champagne-400 focus:outline-none">
+                            <option value="all">Todos los Brazaletes</option>
+                            <option value="Oro Rosa 18K">Oro Rosa 18K</option>
+                            <option value="Acero Inoxidable 316L">Acero Inoxidable 316L</option>
+                            <option value="Cuero de Caimán">Cuero de Caimán Cosido a Mano</option>
+                            <option value="Titanio Grado 5">Titanio Grado 5</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <label class="uppercase tracking-widest font-semibold text-gray-300">Precio Máximo</label>
+                            <span id="priceValue" class="font-mono font-bold text-champagne-300">$150,000 USD</span>
+                        </div>
+                        <input type="range" id="priceRange" min="10000" max="150000" step="5000" value="150000" oninput="updatePriceDisplay()" onchange="applyFilters()" class="w-full accent-champagne-500 cursor-pointer">
+                    </div>
+
+                    <!-- Sorting -->
+                    <div class="space-y-3">
+                        <label class="text-xs uppercase tracking-widest font-semibold text-gray-300 block">Ordenar Por</label>
+                        <select id="sortBy" onchange="applyFilters()" class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-lg p-2.5 text-gray-200 focus:border-champagne-400 focus:outline-none">
+                            <option value="featured">Destacados VIP</option>
+                            <option value="price-high">Precio: Mayor a Menor</option>
+                            <option value="price-low">Precio: Menor a Mayor</option>
+                            <option value="name">Marca / Casa Relojera</option>
+                        </select>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="lg:col-span-3">
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Items injected via renderWatches() -->
+                </div>
+            </main>
+
+        </div>
+    </section>
+
+    <!-- PRIVATE SALON APPOINTMENT & LUXURY EXPERIENCE SECTION -->
+    <section id="private-salon" class="border-t border-champagne-500/10 py-20 bg-obsidian-900/50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-[0.25em] text-champagne-400 font-semibold block">Atención Personalizada de Alto Nivel</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Reserva de Cita Privada en Salón Boutique</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Viva la experiencia de inspección táctil en nuestras galerías privadas de Lima, Ginebra, Zúrich o Miami. Nuestro Sommelier Relojero le presentará las piezas solicitadas acompañadas de degustación de cognac champagne de reserva especial.
+                    </p>
+
+                    <div class="space-y-3 pt-2 text-xs text-gray-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-champagne-400 text-sm"></i>
+                            <span>Privacidad total en suites insonorizadas con seguridad acorazada.</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-champagne-400 text-sm"></i>
+                            <span>Inspección con microscopio horológico y certificado de micro-grabado.</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-champagne-400 text-sm"></i>
+                            <span>Asesoría patrimonial y de custodia de colecciones de inversión.</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openAppointmentModal()" class="px-8 py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-bold font-serif text-xs rounded-xl shadow-lg hover:from-champagne-400 transition tracking-widest">
+                        SOLICITAR ACCESO PRIVADO
+                    </button>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border-champagne-500/20 space-y-6">
+                    <h3 class="font-serif text-xl font-bold text-champagne-300 border-b border-champagne-500/20 pb-4">Programa Trade-In & Valoración de Colecciones</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Aceptamos piezas de alta relojería como parte de pago o consignación asegurada. Complete la ficha confidencial para recibir la propuesta de nuestro consejo tasador.
+                    </p>
+
+                    <form onsubmit="submitTradeIn(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Casa Relojera & Modelo</label>
+                            <input type="text" required placeholder="Ej. Audemars Piguet Royal Oak 15500ST" class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Año de Compra</label>
+                                <input type="number" required placeholder="2021" class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-wider text-gray-400 mb-1">Estado / Documentos</label>
+                                <select class="w-full bg-obsidian-900 border border-champagne-500/20 text-xs rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                                    <option>Set Completo (Caja & Papeles)</option>
+                                    <option>Solo Reloj & Certificado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full py-3 border border-champagne-500/40 text-champagne-300 font-serif text-xs rounded-xl hover:bg-champagne-500/10 transition tracking-wider">
+                            SOLICITAR VALUACIÓN CONFIDENCIAL
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (High-Net-Worth Social Proof) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-champagne-500/10">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs uppercase tracking-[0.25em] text-champagne-400 font-semibold block">Prestigio Acreditado</span>
+            <h2 class="font-serif text-3xl font-bold text-white">Experiencias de Miembros VIP</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-panel p-6 rounded-2xl space-y-4 border-champagne-500/15">
+                <div class="flex text-champagne-400 text-xs space-x-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 italic leading-relaxed">
+                    "La custodia blindada y la verificación del calibre Tourbillon por parte de su maestro relojero fue impecable. Una adición extraordinaria a mi colección privada."
+                </p>
+                <div class="pt-2 border-t border-champagne-500/10 flex justify-between items-center text-[10px]">
+                    <span class="font-serif font-bold text-white">Carlos V. de M.</span>
+                    <span class="text-champagne-400">Coleccionista Verificado</span>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl space-y-4 border-champagne-500/15">
+                <div class="flex text-champagne-400 text-xs space-x-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 italic leading-relaxed">
+                    "Atención de primer nivel en el Salón Privado. Gestionaron la transferencia de mi Patek Philippe con total confidencialidad y entregaron en mi residencia en helicóptero."
+                </p>
+                <div class="pt-2 border-t border-champagne-500/10 flex justify-between items-center text-[10px]">
+                    <span class="font-serif font-bold text-white">Dra. Helene B.</span>
+                    <span class="text-champagne-400">Miembro Platinum</span>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl space-y-4 border-champagne-500/15">
+                <div class="flex text-champagne-400 text-xs space-x-1">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-xs text-gray-300 italic leading-relaxed">
+                    "El servicio Trade-In ofreció un valor sumamente justo por mi Daytona antiguo. El proceso de pago en activos digitales fue instantáneo y transparente."
+                </p>
+                <div class="pt-2 border-t border-champagne-500/10 flex justify-between items-center text-[10px]">
+                    <span class="font-serif font-bold text-white">Roberto G. S.</span>
+                    <span class="text-champagne-400">Inversor Horológico</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian-950 border-t border-champagne-500/20 pt-16 pb-12 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-crown text-champagne-400 text-lg"></i>
+                    <span class="font-cinzel text-xl font-bold text-white tracking-widest">CHRONOS</span>
+                </div>
+                <p class="text-[11px] leading-relaxed text-gray-400">
+                    Casa consignataria y curadora de alta relojería suiza. Certificación de autenticidad respaldada por laboratorio independiente.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-serif font-bold text-white uppercase tracking-wider text-xs">Salones Boutiques</h4>
+                <ul class="space-y-2 text-[11px]">
+                    <li>Ginebra: Rue du Rhône 42</li>
+                    <li>Lima: Av. Santa Cruz 880, Miraflores</li>
+                    <li>Zúrich: Bahnhofstrasse 18</li>
+                    <li>Miami: Brickell Avenue 1200</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-serif font-bold text-white uppercase tracking-wider text-xs">Garantía & Servicios</h4>
+                <ul class="space-y-2 text-[11px]">
+                    <li>Custodia en Bóvedas de Alta Seguridad</li>
+                    <li>Certificación COSC & Micro-Escaneo</li>
+                    <li>Mantenimiento Horológico Oficial</li>
+                    <li>Despacho Blindado Internacional</li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-serif font-bold text-white uppercase tracking-wider text-xs">Club Privado & Subastas</h4>
+                <p class="text-[11px]">Suscríbase para acceder a piezas raras antes de su publicación general.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Su correo corporativo..." class="bg-obsidian-900 border border-champagne-500/20 rounded-l-xl p-2.5 text-xs w-full text-white focus:outline-none">
+                    <button class="bg-champagne-500 hover:bg-champagne-400 text-obsidian-950 px-4 rounded-r-xl font-bold font-serif text-xs">UNIRSE</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-champagne-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 space-y-4 md:space-y-0">
+            <p>&copy; 2026 CHRONOS Haute Horlogerie S.A. Todos los derechos reservados.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-champagne-400">Términos de Confidencialidad</a>
+                <a href="#" class="hover:text-champagne-400">Políticas de Custodia</a>
+                <a href="#" class="hover:text-champagne-400">Verificación de Serie</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div onclick="closeModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+        <div class="glass-panel w-full max-w-3xl rounded-3xl p-6 md:p-8 relative z-10 border-champagne-500/30 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-champagne-400 text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Modal dynamic insertion -->
+            </div>
+        </div>
+    </div>
+
+    <!-- APPOINTMENT MODAL -->
+    <div id="appointmentModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div onclick="closeAppointmentModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+        <div class="glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 relative z-10 border-champagne-500/30 shadow-2xl">
+            <button onclick="closeAppointmentModal()" class="absolute top-5 right-5 text-gray-400 hover:text-champagne-400 text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="text-center space-y-2 mb-6">
+                <i class="fas fa-crown text-champagne-400 text-2xl"></i>
+                <h3 class="font-serif text-2xl font-bold text-white">Reserva de Salón Privado</h3>
+                <p class="text-xs text-gray-400">Un Concierge Horológico coordinará su recepción.</p>
+            </div>
+
+            <form onsubmit="confirmAppointment(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-gray-300 mb-1">Nombre Completo / Titular</label>
+                    <input type="text" required placeholder="Ej. Don Alejandro de la Fuente" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-300 mb-1">Teléfono Directo / WhatsApp</label>
+                        <input type="tel" required placeholder="+51 987 654 321" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 mb-1">Boutique Preferida</label>
+                        <select class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                            <option>Lima (Miraflores)</option>
+                            <option>Ginebra (Rue du Rhône)</option>
+                            <option>Zúrich (Bahnhofstrasse)</option>
+                            <option>Miami (Brickell)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-300 mb-1">Fecha Solicitada</label>
+                        <input type="date" required class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 mb-1">Horario Preferente</label>
+                        <select class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                            <option>11:00 AM - 01:00 PM</option>
+                            <option>03:00 PM - 05:00 PM</option>
+                            <option>06:00 PM - 08:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-bold font-serif text-xs rounded-xl shadow-xl hover:from-champagne-400 transition tracking-widest mt-2">
+                    CONFIRMAR RESERVA VIP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL FLOW -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div onclick="closeCheckout()" class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+        <div class="glass-panel w-full max-w-2xl rounded-3xl p-6 md:p-8 relative z-10 border-champagne-500/30 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckout()" class="absolute top-5 right-5 text-gray-400 hover:text-champagne-400 text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Checkout Steps Indicator -->
+            <div class="flex items-center justify-between border-b border-champagne-500/20 pb-4 mb-6">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-lock text-champagne-400 text-sm"></i>
+                    <h3 class="font-serif font-bold text-white text-lg">DESPACHO & CUSTODIA BLINDADA</h3>
+                </div>
+                <span class="text-[10px] uppercase font-mono text-champagne-300 bg-champagne-500/10 px-2 py-1 rounded border border-champagne-500/30">
+                    SSL 256-Bit Encrypted
+                </span>
+            </div>
+
+            <!-- Interactive Interactive Credit Card Display -->
+            <div class="mb-6 p-4 bg-gradient-to-r from-obsidian-900 via-obsidian-800 to-obsidian-900 rounded-2xl border border-champagne-500/30 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="font-cinzel text-champagne-300 font-bold text-sm tracking-widest">CHRONOS VIP BLACK</span>
+                    <i class="fas fa-microchip text-champagne-400 text-2xl"></i>
+                </div>
+                <div id="cardPreviewNumber" class="font-mono text-lg text-white tracking-widest mb-4">
+                    •••• •••• •••• ••••
+                </div>
+                <div class="flex justify-between items-end text-xs text-gray-400">
+                    <div>
+                        <span class="text-[9px] uppercase block text-gray-500">TITULAR DE LA PIEZA</span>
+                        <span id="cardPreviewName" class="font-serif text-white font-semibold">VALUED COLLECTOR</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] uppercase block text-gray-500">EXPIRACIÓN</span>
+                        <span id="cardPreviewExp" class="font-mono text-champagne-300">MM/AA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="processPayment(event)" class="space-y-4 text-xs">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-300 mb-1">Nombre Completo del Comprador</label>
+                        <input type="text" id="custName" required oninput="updateCardPreview()" placeholder="Ej. Roberto De la Vega" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 mb-1">Correo Electrónico de Confirmación</label>
+                        <input type="email" required placeholder="vip@rvega.com" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-300 mb-1">Dirección de Entrega Blindada / Residencia Privada</label>
+                    <input type="text" required placeholder="Av. Camino Real 1230, Dpto 1501, San Isidro" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white focus:border-champagne-400 focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-300 mb-1">Número de Tarjeta Credito / Debito VIP</label>
+                        <input type="text" id="cardNumber" maxlength="19" required oninput="formatCardInput(this); updateCardPreview();" placeholder="4532 8900 1234 5678" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white font-mono focus:border-champagne-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gray-300 mb-1">Expiración (MM/AA)</label>
+                        <input type="text" id="cardExp" maxlength="5" required oninput="updateCardPreview()" placeholder="11/28" class="w-full bg-obsidian-900 border border-champagne-500/20 rounded-xl p-3 text-white font-mono focus:border-champagne-400 focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="p-3 bg-obsidian-900/80 rounded-xl border border-champagne-500/10 flex justify-between items-center text-xs">
+                    <span class="text-gray-400">Total a Transferir:</span>
+                    <span id="checkoutTotalAmount" class="font-mono text-champagne-300 font-bold text-sm">$0.00 USD</span>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-bold font-serif text-xs rounded-xl shadow-xl hover:from-champagne-400 transition tracking-widest">
+                    AUTORIZAR TRANSACCIÓN Y DESPACHO
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SLIDING CART DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div onclick="closeCart()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+        <div id="cartContent" class="absolute top-0 right-0 w-full max-w-md h-full bg-obsidian-950 border-l border-champagne-500/30 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col pointer-events-auto">
+            
+            <div class="p-5 border-b border-champagne-500/15 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-champagne-400"></i>
+                    <h3 class="font-serif font-bold text-white text-base tracking-widest">SU SELECCIÓN VIP</h3>
+                </div>
+                <button onclick="closeCart()" class="text-gray-400 hover:text-champagne-400 text-lg transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="bg-obsidian-900 p-3 border-b border-champagne-500/10 text-center text-xs">
+                <p class="text-champagne-300 font-serif font-semibold mb-1">
+                    <i class="fas fa-shield-alt text-xs mr-1"></i> Envío Blindado Asegurado de Cortesía
+                </p>
+                <div class="w-full bg-obsidian-950 rounded-full h-1.5 border border-champagne-500/20 overflow-hidden">
+                    <div class="bg-gradient-to-r from-champagne-600 to-champagne-400 h-full w-full"></div>
+                </div>
+            </div>
+
+            <div id="cartItemList" class="flex-1 overflow-y-auto p-5 space-y-4">
+                <!-- Cart items rendered dynamically -->
+            </div>
+
+            <div class="p-5 border-t border-champagne-500/15 bg-obsidian-900/50 space-y-4">
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between text-gray-400">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal" class="font-mono text-white">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>Custodia & Envío Blindado:</span>
+                        <span class="text-champagne-400 font-bold">INCLUIDO</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-champagne-500/10">
+                        <span>Total estimado:</span>
+                        <span id="cartTotal" class="font-mono text-champagne-400">$0.00</span>
+                    </div>
+                </div>
+
+                <button onclick="startCheckout()" class="w-full py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-600 hover:from-champagne-400 hover:to-champagne-500 text-obsidian-950 font-bold font-serif text-xs rounded-xl shadow-xl shadow-champagne-500/20 transition tracking-widest">
+                    PROCEDER CON EL PAGO <i class="fas fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass-panel px-5 py-3.5 rounded-2xl border border-champagne-500/40 shadow-2xl flex items-center space-x-3 text-xs">
+            <i class="fas fa-check-circle text-champagne-400 text-lg"></i>
+            <div>
+                <span id="toastTitle" class="font-serif font-bold text-white block">Notificación VIP</span>
+                <span id="toastMsg" class="text-gray-300 text-[11px]">Acción realizada con éxito.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <script>
+        // LUXURY WATCH DATABASE
+        const WATCHES = [
+            {
+                id: 1,
+                brand: "Patek Philippe",
+                model: "Grand Complications 5320G",
+                category: "Automatic",
+                priceUSD: 98500,
+                strap: "Cuero de Caimán",
+                stock: 2,
+                badge: "Pieza Única",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "Calibre 324 S Q Manual",
+                    case: "Oro Rosa 18K (40mm)",
+                    waterRes: "30 Metros",
+                    crystal: "Zafiro Anti-Reflejos",
+                    powerReserve: "45 Horas",
+                    cert: "Patek Philippe Seal"
+                }
+            },
+            {
+                id: 2,
+                brand: "Audemars Piguet",
+                model: "Royal Oak Tourbillon Extra-Thin",
+                category: "Automatic",
+                priceUSD: 135000,
+                strap: "Oro Rosa 18K",
+                stock: 1,
+                badge: "Tourbillon",
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "Calibre 2924 Extraplano",
+                    case: "Oro Rosa 18K (41mm)",
+                    waterRes: "50 Metros",
+                    crystal: "Cristal de Zafiro Frontal y Posterior",
+                    powerReserve: "70 Horas",
+                    cert: "Haute Horlogerie Spec"
+                }
+            },
+            {
+                id: 3,
+                brand: "Rolex",
+                model: "Daytona Cosmograph Platinum",
+                category: "Chronograph",
+                priceUSD: 87000,
+                strap: "Platino 950",
+                stock: 3,
+                badge: "Edición Aniversario",
+                image: "https://images.unsplash.com/photo-1547996160-01c1782698e0?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "Calibre 4131 Cronógrafo",
+                    case: "Platino 950 (40mm)",
+                    waterRes: "100 Metros",
+                    crystal: "Zafiro Resistente a Rayaduras",
+                    powerReserve: "72 Horas",
+                    cert: "Superlative Chronometer (COSC)"
+                }
+            },
+            {
+                id: 4,
+                brand: "Vacheron Constantin",
+                model: "Overseas Perpetual Calendar",
+                category: "Automatic",
+                priceUSD: 112000,
+                strap: "Oro Rosa 18K",
+                stock: 2,
+                badge: "Calendario Perpetuo",
+                image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "Calibre 1120 QP/1",
+                    case: "Oro Rosa 18K (41.5mm)",
+                    waterRes: "50 Metros",
+                    crystal: "Zafiro Tratamiento Doble Capa",
+                    powerReserve: "40 Horas",
+                    cert: "Punzón de Ginebra"
+                }
+            },
+            {
+                id: 5,
+                brand: "A. Lange & Söhne",
+                model: "Lange 1 Time Zone Platinum",
+                category: "Dress",
+                priceUSD: 76000,
+                strap: "Cuero de Caimán",
+                stock: 1,
+                badge: "Platino Limitado",
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "Calibre L141.1 Cuerda Manual",
+                    case: "Platino 950 (41.9mm)",
+                    waterRes: "30 Metros",
+                    crystal: "Zafiro Cristalino High Clarity",
+                    powerReserve: "72 Horas",
+                    cert: "German Horological Guild"
+                }
+            },
+            {
+                id: 6,
+                brand: "Richard Mille",
+                model: "RM 011 Felipe Massa Titanium",
+                category: "Sport",
+                priceUSD: 148000,
+                strap: "Titanio Grado 5",
+                stock: 1,
+                badge: "Caja Esqueleto",
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80",
+                specs: {
+                    movement: "RMAC1 Calibre Automático Flyback",
+                    case: "Titanio Grado 5 (50mm)",
+                    waterRes: "50 Metros",
+                    crystal: "Zafiro Curvado Anti-Impactos",
+                    powerReserve: "50 Horas",
+                    cert: "F1 Racing Certified"
+                }
+            }
+        ];
+
+        // GLOBAL APP STATE
+        let currentCurrency = 'USD'; // 'USD' or 'PEN'
+        const EXCHANGE_RATE = 3.75; // 1 USD = 3.75 PEN
+        let cart = [];
+
+        // INITIALIZATION ON LOAD
+        window.onload = function() {
+            renderWatches(WATCHES);
+            startHeroTimer();
+            updateCartUI();
+        };
+
+        // CURRENCY CONVERSION HELPERS
+        function toggleCurrency() {
+            currentCurrency = currentCurrency === 'USD' ? 'PEN' : 'USD';
+            document.getElementById('currencyBtn').innerText = currentCurrency === 'USD' ? 'USD ($)' : 'PEN (S/)';
+            
+            // Re-render hero watch price
+            const heroWatch = WATCHES.find(w => w.id === 1);
+            if (heroWatch) {
+                document.getElementById('heroPrice').innerText = formatPrice(heroWatch.priceUSD);
+            }
+
+            applyFilters();
+            updateCartUI();
+            showToast("Divisa Actualizada", `Precios expresados en ${currentCurrency}.`);
+        }
+
+        function formatPrice(amountUSD) {
+            if (currentCurrency === 'PEN') {
+                const amountPEN = Math.round(amountUSD * EXCHANGE_RATE);
+                return 'S/ ' + new Intl.NumberFormat('es-PE').format(amountPEN);
+            }
+            return '$' + new Intl.NumberFormat('en-US').format(amountUSD) + ' USD';
+        }
+
+        function updatePriceDisplay() {
+            const val = document.getElementById('priceRange').value;
+            document.getElementById('priceValue').innerText = formatPrice(parseInt(val));
+        }
+
+        function startHeroTimer() {
+            let hours = 8, mins = 42, secs = 19;
+            setInterval(() => {
+                secs--;
+                if (secs < 0) { secs = 59; mins--; }
+                if (mins < 0) { mins = 59; hours--; }
+                if (hours < 0) { hours = 24; }
+
+                document.getElementById('timerHours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('timerMins').innerText = String(mins).padStart(2, '0');
+                document.getElementById('timerSecs').innerText = String(secs).padStart(2, '0');
+            }, 1000);
+        }
+
+        // RENDER WATCH CATALOG
+        function renderWatches(items) {
+            const grid = document.getElementById('productGrid');
+            if (!grid) return;
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center space-y-3 glass-panel rounded-2xl">
+                        <i class="fas fa-search text-3xl text-champagne-500/40"></i>
+                        <p class="font-serif text-gray-300 text-sm">No encontramos piezas que coincidan con sus filtros.</p>
+                        <button onclick="resetFilters()" class="text-xs text-champagne-400 underline hover:text-white">Restablecer Criterios</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = items.map(watch => `
+                <div class="glass-panel rounded-2xl p-5 gold-border-glow flex flex-col justify-between relative group transition-all duration-300 hover:-translate-y-1">
+                    <!-- Badge -->
+                    <div class="flex justify-between items-center text-[10px] uppercase font-bold tracking-widest mb-3">
+                        <span class="bg-champagne-500/10 text-champagne-300 border border-champagne-500/30 px-2 py-0.5 rounded-md">
+                            ${watch.badge}
+                        </span>
+                        <span class="text-red-400 flex items-center gap-1">
+                            <i class="fas fa-fire-alt text-[9px]"></i> Stock: ${watch.stock}
+                        </span>
+                    </div>
+
+                    <!-- Watch Image -->
+                    <div class="h-48 my-3 flex items-center justify-center relative cursor-pointer" onclick="openModal(${watch.id})">
+                        <img src="${watch.image}" alt="${watch.model}" class="max-h-full object-contain filter drop-shadow-[0_15px_20px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <!-- Info -->
+                    <div class="space-y-2 pt-3 border-t border-champagne-500/10">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-champagne-400 font-semibold block">${watch.brand}</span>
+                                <h3 class="font-serif font-bold text-white text-sm line-clamp-1">${watch.model}</h3>
+                            </div>
+                        </div>
+
+                        <div class="text-[11px] text-gray-400 space-y-0.5">
+                            <p><i class="fas fa-cog text-[9px] text-champagne-500/60 mr-1"></i> ${watch.specs.movement}</p>
+                            <p><i class="fas fa-gem text-[9px] text-champagne-500/60 mr-1"></i> ${watch.strap}</p>
+                        </div>
+
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="font-mono text-sm font-bold text-champagne-300">${formatPrice(watch.priceUSD)}</span>
+                            <div class="flex gap-2">
+                                <button onclick="openModal(${watch.id})" class="p-2 border border-champagne-500/30 rounded-lg text-gray-300 hover:text-champagne-400 hover:bg-champagne-500/10 transition" title="Ver Ficha Técnica">
+                                    <i class="fas fa-eye text-xs"></i>
+                                </button>
+                                <button onclick="addToCart(${watch.id})" class="px-3 py-2 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-serif font-bold text-xs rounded-lg hover:from-champagne-400 transition shadow-md" title="Agregar al Carrito">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // PRODUCT MODAL WITH UNBOXING EXPERIENCE
+        function openModal(id) {
+            const watch = WATCHES.find(w => w.id === id);
+            if (!watch) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="flex flex-col items-center justify-center p-4">
+                    <img src="${watch.image}" alt="${watch.model}" class="max-h-72 object-contain filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]">
+                    <div class="mt-4 p-3 bg-obsidian-900/90 rounded-xl border border-champagne-500/20 text-[11px] text-gray-400 w-full text-center space-y-1">
+                        <p class="text-champagne-300 font-semibold font-serif"><i class="fas fa-box-open mr-1"></i> Experiencia de Desempaque Luxury</p>
+                        <p class="text-[10px]">Estuche de madera de nogal pulido, guantes de seda, lupa horológica y certificado en bronce grabado.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-champagne-400 font-semibold">${watch.brand}</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">${watch.model}</h3>
+                        <p class="font-mono text-xl text-champagne-300 font-bold mt-1">${formatPrice(watch.priceUSD)}</p>
+                    </div>
+
+                    <div class="bg-obsidian-900 border border-champagne-500/20 p-4 rounded-xl space-y-2 text-xs">
+                        <h4 class="font-serif font-bold text-champagne-400 tracking-wider">ESPECIFICACIONES TÉCNICAS</h4>
+                        <div class="grid grid-cols-2 gap-2 text-gray-300">
+                            <p><span class="text-gray-500">Mecanismo:</span> ${watch.specs.movement}</p>
+                            <p><span class="text-gray-500">Caja:</span> ${watch.specs.case}</p>
+                            <p><span class="text-gray-500">Cristal:</span> ${watch.specs.crystal}</p>
+                            <p><span class="text-gray-500">Hermeticidad:</span> ${watch.specs.waterRes}</p>
+                            <p><span class="text-gray-500">Reserva:</span> ${watch.specs.powerReserve}</p>
+                            <p><span class="text-gray-500">Certificación:</span> ${watch.specs.cert}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 pt-2">
+                        <button onclick="addToCart(${watch.id}); closeModal();" class="flex-1 py-3 bg-gradient-to-r from-champagne-500 to-champagne-600 text-obsidian-950 font-serif font-bold text-xs rounded-xl hover:from-champagne-400 transition shadow-lg">
+                            AÑADIR A MI SELECCIÓN
+                        </button>
+                        <a href="https://wa.me/51987654321?text=Deseo%20consultar%20sobre%20el%20reloj%20${encodeURIComponent(watch.brand + ' ' + watch.model)}" target="_blank" class="px-4 py-3 border border-champagne-500/40 text-champagne-300 rounded-xl hover:bg-champagne-500/10 flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        // APPOINTMENT MODAL LOGIC
+        function openAppointmentModal() {
+            const modal = document.getElementById('appointmentModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+        }
+
+        function closeAppointmentModal() {
+            const modal = document.getElementById('appointmentModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function confirmAppointment(e) {
+            e.preventDefault();
+            closeAppointmentModal();
+            showToast("Cita Confirmada", "Su Concierge VIP se pondrá en contacto para validar la reserva.");
+        }
+
+        function submitTradeIn(e) {
+            e.preventDefault();
+            showToast("Solicitud Recibida", "Su consulta de Trade-In ha sido registrada confidencialmente.");
+            e.target.reset();
+        }
+
+        // FILTER OVERRIDE WITH METAL SELECTOR
+        function applyFilters() {
+            const categories = Array.from(document.querySelectorAll('.filter-category:checked')).map(cb => cb.value);
+            const strap = document.getElementById('strapFilter').value;
+            const metal = document.getElementById('metalFilter') ? document.getElementById('metalFilter').value : 'all';
+            const maxPrice = parseInt(document.getElementById('priceRange').value);
+            const sortBy = document.getElementById('sortBy').value;
+            const query = (document.getElementById('searchInput').value || document.getElementById('searchInputMobile').value).toLowerCase();
+
+            let filtered = WATCHES.filter(watch => {
+                const matchCat = categories.length === 0 || categories.includes(watch.category);
+                const matchStrap = strap === 'all' || watch.strap === strap;
+                const matchMetal = metal === 'all' || watch.specs.case.includes(metal) || watch.strap.includes(metal);
+                const matchPrice = watch.priceUSD <= maxPrice;
+                const matchQuery = watch.brand.toLowerCase().includes(query) || watch.model.toLowerCase().includes(query);
+                return matchCat && matchStrap && matchMetal && matchPrice && matchQuery;
+            });
+
+            if (sortBy === 'price-low') {
+                filtered.sort((a, b) => a.priceUSD - b.priceUSD);
+            } else if (sortBy === 'price-high') {
+                filtered.sort((a, b) => b.priceUSD - a.priceUSD);
+            } else if (sortBy === 'name') {
+                filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+            }
+
+            renderWatches(filtered);
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.filter-category').forEach(cb => cb.checked = false);
+            document.getElementById('strapFilter').value = 'all';
+            document.getElementById('priceRange').value = 150000;
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchInputMobile').value = '';
+            document.getElementById('sortBy').value = 'featured';
+            updatePriceDisplay();
+            applyFilters();
+        }
+
+        function handleSearch() { applyFilters(); }
+        function handleSearchMobile() { applyFilters(); }
+
+        // SHOPPING CART SYSTEM
+        function addToCart(id) {
+            const watch = WATCHES.find(w => w.id === id);
+            if (!watch) return;
+
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ ...watch, quantity: 1 });
+            }
+
+            updateCartUI();
+            openCart();
+            showToast("Pieza Añadida", `${watch.brand} ${watch.model} agregado al carrito.`);
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                removeFromCart(id);
+            } else {
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('scale-0');
+            } else {
+                badge.classList.add('scale-0');
+            }
+
+            const itemList = document.getElementById('cartItemList');
+            if (cart.length === 0) {
+                itemList.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <i class="fas fa-shopping-bag text-3xl text-gray-600"></i>
+                        <p class="text-xs text-gray-400 font-serif">Su selección VIP está vacía.</p>
+                    </div>
+                `;
+            } else {
+                itemList.innerHTML = cart.map(item => `
+                    <div class="flex items-center space-x-3 glass-panel p-3 rounded-xl border border-champagne-500/15">
+                        <img src="${item.image}" class="w-12 h-12 object-contain">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-serif font-bold text-white truncate">${item.brand}</h4>
+                            <p class="text-[10px] text-gray-400 truncate">${item.model}</p>
+                            <p class="text-xs font-mono text-champagne-300 font-bold">${formatPrice(item.priceUSD)}</p>
+                        </div>
+                        <div class="flex items-center space-x-1 bg-obsidian-900 border border-champagne-500/20 rounded-lg p-1 text-xs">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 flex items-center justify-center text-gray-400 hover:text-white">-</button>
+                            <span class="px-1 text-white font-mono">${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 flex items-center justify-center text-gray-400 hover:text-white">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-gray-500 hover:text-red-400 text-xs p-1">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            const subtotalUSD = cart.reduce((sum, i) => sum + (i.priceUSD * i.quantity), 0);
+            document.getElementById('cartSubtotal').innerText = formatPrice(subtotalUSD);
+            document.getElementById('cartTotal').innerText = formatPrice(subtotalUSD);
+        }
+
+        function openCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const content = document.getElementById('cartContent');
+            drawer.classList.remove('pointer-events-none', 'opacity-0');
+            content.classList.remove('translate-x-full');
+        }
+
+        function closeCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const content = document.getElementById('cartContent');
+            content.classList.add('translate-x-full');
+            drawer.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // CHECKOUT FLOW & CARD PREVIEW
+        function startCheckout() {
+            if (cart.length === 0) {
+                showToast("Selección Vacía", "Agregue al menos una pieza para proceder al pago.");
+                return;
+            }
+
+            closeCart();
+            const subtotalUSD = cart.reduce((sum, i) => sum + (i.priceUSD * i.quantity), 0);
+            document.getElementById('checkoutTotalAmount').innerText = formatPrice(subtotalUSD);
+
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+        }
+
+        function closeCheckout() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function formatCardInput(input) {
+            let val = input.value.replace(/\D/g, '');
+            val = val.replace(/(.{4})/g, '$1 ').trim();
+            input.value = val;
+        }
+
+        function updateCardPreview() {
+            const name = document.getElementById('custName').value;
+            const num = document.getElementById('cardNumber').value;
+            const exp = document.getElementById('cardExp').value;
+
+            document.getElementById('cardPreviewName').innerText = name.toUpperCase() || 'VALUED COLLECTOR';
+            document.getElementById('cardPreviewNumber').innerText = num || '•••• •••• •••• ••••';
+            document.getElementById('cardPreviewExp').innerText = exp || 'MM/AA';
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            closeCheckout();
+            cart = [];
+            updateCartUI();
+            showToast("Transacción Exitosa", "Su pedido VIP ha sido procesado. Un vehículo blindado entregará su paquete.");
+        }
+
+        // UTILS
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMsg').innerText = message;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
